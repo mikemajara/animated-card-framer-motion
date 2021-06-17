@@ -35,6 +35,9 @@ const colors = [
   "#750787"
 ];
 
+const getRandomNumberBetween = (min: number, max: number) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
+
 export const AnimatedButton = (props: any) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState("white");
@@ -53,6 +56,7 @@ export const AnimatedButton = (props: any) => {
   }, [props.expanded]);
 
   // setInterval(() => toggleExpanded(), 4000)
+  // setInterval(() => toggleExpanded(), getRandomNumberBetween(1500, 4000))
 
   const textControls = useAnimation();
 

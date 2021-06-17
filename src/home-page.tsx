@@ -129,7 +129,7 @@ export const HomePage = (props: any) => {
             flexDir="row"
           >
             {
-              badges.slice(0,1).map((e, idx) => {
+              badges.slice(0,5).map((e, idx) => {
                 return <AnimatedButton
                   layout
                   expanded={!shouldCollapseAll}
