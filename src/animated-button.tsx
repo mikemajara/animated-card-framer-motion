@@ -58,6 +58,7 @@ export const AnimatedButton = (props: any) => {
 
   const buttonStyle = {
     padding: "8px 16px",
+    paddingBottom: "0px",
     // paddingBottom: 0,
     display: "flex",
     flexDirection: "column",
@@ -67,6 +68,8 @@ export const AnimatedButton = (props: any) => {
     borderRadius: "10px",
     backgroundColor: "white"
   };
+
+  const defaultTransition = {duration: 3}
 
   return (
     <ABox
@@ -92,24 +95,29 @@ export const AnimatedButton = (props: any) => {
       }}
       initial={false}
       // animate={{height: isExpanded ? "auto" : "40px", borderRadius: "10px"}}
-      transition={{duration: "3"}}
+      transition={{...defaultTransition}}
     >
-      <AFlex align="center" layout initial={false}>
+      <AFlex align="center" layout initial={false} mb="8px" transition={{...defaultTransition}}>
         <AIcon layout as={SunIcon} mr="16px"
           animate={{height: isExpanded ? "1.2rem" : "1rem"}}
+          transition={{...defaultTransition}}
         />
-        <AText layout initial={false} animate={{fontSize: isExpanded ? "1.5rem" : "1rem"}}>
+        <AText layout initial={false} animate={{fontSize: isExpanded ? "1.5rem" : "1rem"}}
+          transition={{...defaultTransition}}
+        >
           {props.title}
         </AText>
       </AFlex>
       <AText
         // layout
         // py="5"
-        // initial={false}
+        initial={false}
         animate={{
           opacity: isExpanded ? 1 : 0,
-          height: isExpanded ? "auto" : "1px"
+          height: isExpanded ? "auto" : "1px",
+          marginBottom: isExpanded ? "8px" : "0"
         }}
+        transition={{...defaultTransition}}
         >
         {props.content}
       </AText>      
