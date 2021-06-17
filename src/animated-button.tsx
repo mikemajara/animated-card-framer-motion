@@ -71,7 +71,10 @@ export const AnimatedButton = (props: any) => {
     backgroundColor: "white"
   };
 
-  const defaultTransition = { duration: 3 };
+  const defaultTransition = {
+    type: "spring",
+    /*duration: .2,*/ bounce: 0
+  };
 
   return (
     <ABox
@@ -103,13 +106,19 @@ export const AnimatedButton = (props: any) => {
         align="center"
         layout
         initial={false}
+        animate={{
+          marginBottom: isExpanded ? "10px" : 0
+        }}
         transition={{ ...defaultTransition }}
       >
         <AIcon
           layout
           as={SunIcon}
           mr="16px"
-          animate={{ height: isExpanded ? "1.2rem" : "1rem" }}
+          animate={{
+            height: isExpanded ? "1.5rem" : "1rem",
+            width: isExpanded ? "1.5rem" : "1rem"
+          }}
           transition={{ ...defaultTransition }}
         />
         <AText
@@ -127,7 +136,8 @@ export const AnimatedButton = (props: any) => {
         initial={false}
         animate={{
           opacity: isExpanded ? 1 : 0,
-          height: isExpanded ? "auto" : 0
+          height: isExpanded ? "auto" : 0,
+          marginBottom: isExpanded ? "5px" : 0
         }}
         transition={{ ...defaultTransition }}
       >
