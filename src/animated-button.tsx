@@ -70,6 +70,7 @@ export const AnimatedButton = (props: any) => {
 
   return (
     <ABox
+      // This layout messes up borders
       // layout
       onClick={toggleExpanded}
       boxShadow="md"
