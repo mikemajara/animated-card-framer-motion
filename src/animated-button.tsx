@@ -11,15 +11,20 @@ import {
   Icon
 } from "@chakra-ui/react";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
-import { motion, AnimatePresence, useAnimation, AnimateSharedLayout } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useAnimation,
+  AnimateSharedLayout
+} from "framer-motion";
 import { sample } from "lodash";
 import {
   AFlex,
   ABox,
   AButton,
   AIcon,
-  AText,
-} from './chakra-animated-components'
+  AText
+} from "./chakra-animated-components";
 
 const colors = [
   "#e40303",
@@ -55,11 +60,8 @@ export const AnimatedButton = (props: any) => {
     setIsExpanded(!isExpanded);
   };
 
-
   const buttonStyle = {
     padding: "8px 16px",
-    paddingBottom: "0px",
-    // paddingBottom: 0,
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
@@ -69,7 +71,7 @@ export const AnimatedButton = (props: any) => {
     backgroundColor: "white"
   };
 
-  const defaultTransition = {duration: 3}
+  const defaultTransition = { duration: 3 };
 
   return (
     <ABox
@@ -89,21 +91,32 @@ export const AnimatedButton = (props: any) => {
         // height not animated here because the meassurement
         // leads to a glitch adjusting to the padding (which is not taken
         // into account with padding)
-        height: "auto", 
+        height: "auto",
         backgroundColor: "gray.500",
-        overflow: "hidden",
+        overflow: "hidden"
       }}
       initial={false}
       // animate={{height: isExpanded ? "auto" : "40px", borderRadius: "10px"}}
-      transition={{...defaultTransition}}
+      transition={{ ...defaultTransition }}
     >
-      <AFlex align="center" layout initial={false} mb="8px" transition={{...defaultTransition}}>
-        <AIcon layout as={SunIcon} mr="16px"
-          animate={{height: isExpanded ? "1.2rem" : "1rem"}}
-          transition={{...defaultTransition}}
+      <AFlex
+        align="center"
+        layout
+        initial={false}
+        transition={{ ...defaultTransition }}
+      >
+        <AIcon
+          layout
+          as={SunIcon}
+          mr="16px"
+          animate={{ height: isExpanded ? "1.2rem" : "1rem" }}
+          transition={{ ...defaultTransition }}
         />
-        <AText layout initial={false} animate={{fontSize: isExpanded ? "1.5rem" : "1rem"}}
-          transition={{...defaultTransition}}
+        <AText
+          layout
+          initial={false}
+          animate={{ fontSize: isExpanded ? "1.5rem" : "1rem" }}
+          transition={{ ...defaultTransition }}
         >
           {props.title}
         </AText>
@@ -114,13 +127,12 @@ export const AnimatedButton = (props: any) => {
         initial={false}
         animate={{
           opacity: isExpanded ? 1 : 0,
-          height: isExpanded ? "auto" : "1px",
-          marginBottom: isExpanded ? "8px" : "0"
+          height: isExpanded ? "auto" : 0
         }}
-        transition={{...defaultTransition}}
-        >
+        transition={{ ...defaultTransition }}
+      >
         {props.content}
-      </AText>      
+      </AText>
     </ABox>
   );
 };
